@@ -9,7 +9,17 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            // "browserConfig": {
+                // "runtimeArgs": ["--remote-debugging-port=3000", "--new-window", "--user-data-dir=C:/Users/redst/AppData/Local/Google/Chrome/User Data/"]
+            // }
+            // "runtimeArgs": ["--profile-directory='Profile 3'"]
+        },
+        {
+            "type": "chrome",
+            "request": "attach",
+            "name": "Attach to browser",
+            "port": 3000
         }
     ]
 }

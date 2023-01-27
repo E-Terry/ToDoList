@@ -1,6 +1,9 @@
 .Form {
     font-size: 20px;
 }
+form {
+    width: 50%;
+}
 
 .titleForm{
     width: 30%;

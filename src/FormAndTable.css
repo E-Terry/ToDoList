@@ -1,0 +1,14 @@
+.Display {
+    display: flex;
+  }
+  
+  /* Create two equal columns that sits next to each other */
+  .formDisplay {
+    flex: 50%;
+    padding: 10px;
+  }
+
+  .tableDisplay {
+    flex: 50%;
+    padding: 10px;
+  }
