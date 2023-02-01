@@ -30,6 +30,14 @@ static getTasks() {
     ThingsToDo = ThingsToDo.sort((a,b) => a.value - b.value);
     return ThingsToDo;
 }
+
+static updateTimes() {
+    ThingsToDo.forEach((a, i) =>
+    {
+        ThingsToDo[i] = new Task(a.title, a.time, a.difficulty, a.importance, new Date(a.date).toLocaleString("en-US", {timeZone: "UTC", dateStyle: "full"}), a.canDo);
+    }
+    )
+}
 }
 export function appendTask(task) {
     // console.log(task);

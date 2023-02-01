@@ -7,18 +7,24 @@ export default class Task {
             this.importance = importance;
             this.date = Date.parse(date);
             this.canDo = canDo;
-            this.value = calcValue(this.time, this.difficulty, this.importance, this.date, this.canDo);
+            this.value = calcValue(this.title, this.time, this.difficulty, this.importance, this.date, this.canDo);
             // console.log(title, time, difficulty, importance, date, this.value);
         }
         
-
+        updateDue = () => {
+            this.value = calcValue(this.time, this.difficulty, this.importance, this.date, this.canDo);
+        }
         toString() {
             var a = " , "
             return '' + a + this.title + a + this.time + a + this.difficulty + a + this.importance + a + this.date + a + this.canDo;
         }
+
+        
 }
 
-function calcValue(time, difficulty, importance, date, canDo) {
+
+
+function calcValue(title, time, difficulty, importance, date, canDo) {
     if(canDo === 'false') return 10;
 
     var timeArray = [5, 10, 20, 30, 45, 60, 90, 120, 150, 200];
@@ -58,7 +64,8 @@ function calcValue(time, difficulty, importance, date, canDo) {
         ];
     var tvdVsImportance = tvdVsImportanceMatrix[10-timeVsDiff][importance-1];
 
-    var daysUntilDue = (date - (new Date().getTime()))/(1000*60*60*24);
+    var daysUntilDue = Math.ceil((date - (new Date().getTime()))/(1000*60*60*24));
+    console.log(title, daysUntilDue);
     var daysArray = [1,2,3,5,7,14,21,30,90,150];
     var daysIndex = closest(daysUntilDue, daysArray);
 

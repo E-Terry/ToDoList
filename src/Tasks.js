@@ -1,6 +1,7 @@
 import ToDoList from "./ToDoList";
 import React from "react";
 import { toggleCanDo } from "./ToDoList";
+import Task from "./Task";
 
 class Tasks extends React.Component {
     constructor(props) {
@@ -38,6 +39,7 @@ class Tasks extends React.Component {
         this.tableData = ""
         var b = "</td><td>"
         ToDoList.getTasks().forEach(a => {
+            ToDoList.updateTimes();
             this.tableData += "<tr><td>"+ a.title + b
             + a.time + b
             + a.difficulty + b
