@@ -68,6 +68,7 @@ h2 {
 
 .Display {
   display: flex;
+  padding-top: .5em;
 }
 
 /* Create two equal columns that sits next to each other */
@@ -127,3 +128,5 @@ th {
 sub {
   font-size: .4em;
 }
+
+nav{height:65vmin; width:100%; overflow:scroll;}

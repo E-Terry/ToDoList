@@ -1,22 +1,26 @@
 export default class Task {
 
-        constructor(title, time, difficulty, importance, date) {
+        constructor(title, time, difficulty, importance, date, canDo) {
             this.title = title;
             this.time = time;
             this.difficulty = difficulty;
             this.importance = importance;
             this.date = Date.parse(date);
-            this.value = calcValue(this.time, this.difficulty, this.importance, this.date);
-            console.log(title, time, difficulty, importance, date, this.value);
+            this.canDo = canDo;
+            this.value = calcValue(this.time, this.difficulty, this.importance, this.date, this.canDo);
+            // console.log(title, time, difficulty, importance, date, this.value);
         }
         
 
         toString() {
-            return '' + this.title + this.time + this.difficulty + this.importance + this.date;
+            var a = " , "
+            return '' + a + this.title + a + this.time + a + this.difficulty + a + this.importance + a + this.date + a + this.canDo;
         }
 }
 
-function calcValue(time, difficulty, importance, date) {
+function calcValue(time, difficulty, importance, date, canDo) {
+    if(canDo === 'false') return 10;
+
     var timeArray = [5, 10, 20, 30, 45, 60, 90, 120, 150, 200];
     var timeIndex = closest(time, timeArray);
 
@@ -91,3 +95,4 @@ function closest(num, arr) {
     }
     return index;
 }
+
